@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import { MEALS } from "./mealsData";
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -111,277 +112,25 @@ const WORKOUTS = {
     });
 });
 
-const MEALS = {
-  Mon: {
-    breakfast: {
-      name: "Classic Power Smoothie 🫐",
-      items: [
-        "Protein Powder — 30g",
-        "Frozen Mixed Berries — 140g",
-        "Banana — 60g",
-        "Peanut Butter — 16g",
-        "Unsweetened Almond Milk — 240g",
-      ],
-    },
-    lunch: {
-      name: "Chicken Rice Bowl 🍚",
-      items: [
-        "Chicken Breast (cooked) — 113g",
-        "White/Jasmine Rice (cooked) — 160g",
-        "Broccoli (steamed) — 150g",
-        "Olive Oil — 5g",
-      ],
-    },
-    snack: {
-      name: "Yogurt Apple Crunch 🍎",
-      items: [
-        "Plain Non-Fat Greek Yogurt — 170g",
-        "Raw Almonds — 14g",
-        "Apple — 180g",
-      ],
-    },
-    dinner: {
-      name: "Beef & Sweet Potato 🥩",
-      items: [
-        "Lean Ground Beef 93/7 (cooked) — 113g",
-        "Baked Sweet Potato (cooked) — 130g",
-        "Green Beans — 125g",
-        "Butter — 5g",
-      ],
-    },
-  },
-  Tue: {
-    breakfast: {
-      name: "Tropical Smoothie 🥭",
-      items: [
-        "Protein Powder — 30g",
-        "Frozen Mango or Pineapple — 140g",
-        "Banana — 60g",
-        "Almond Butter — 16g",
-        "Unsweetened Almond Milk — 240g",
-      ],
-    },
-    lunch: {
-      name: "Turkey Pasta Bowl 🍝",
-      items: [
-        "Lean Ground Turkey 99% (cooked) — 113g",
-        "Pasta (cooked) — 120g",
-        "Marinara Sauce — 120g",
-        "Zucchini — 100g",
-      ],
-    },
-    snack: {
-      name: "Cottage Cheese & Berries 🍓",
-      items: [
-        "Low-Fat Cottage Cheese 2% — 170g",
-        "Walnuts — 14g",
-        "Strawberries — 150g",
-      ],
-    },
-    dinner: {
-      name: "Pork Tenderloin & Potatoes 🥔",
-      items: [
-        "Pork Tenderloin (cooked) — 113g",
-        "Roasted Red Potatoes (cooked) — 150g",
-        "Asparagus — 125g",
-        "Olive Oil — 7g",
-      ],
-    },
-  },
-  Wed: {
-    breakfast: {
-      name: "Classic Power Smoothie 🫐",
-      items: [
-        "Protein Powder — 30g",
-        "Frozen Mixed Berries — 140g",
-        "Banana — 60g",
-        "Peanut Butter — 16g",
-        "Unsweetened Almond Milk — 240g",
-      ],
-    },
-    lunch: {
-      name: "Chicken Fajita Bowl 🌶️",
-      items: [
-        "Chicken Breast (cooked) — 113g",
-        "Black Beans (rinsed) — 100g",
-        "White Rice (cooked) — 80g",
-        "Bell Peppers & Onions — 100g",
-      ],
-    },
-    snack: {
-      name: "Yogurt Peach Crunch 🍑",
-      items: [
-        "Plain Non-Fat Greek Yogurt — 170g",
-        "Raw Almonds — 14g",
-        "Peach or Pear — 150g",
-      ],
-    },
-    dinner: {
-      name: "Sirloin & Sweet Potato 🥩",
-      items: [
-        "Lean Sirloin Steak (cooked) — 113g",
-        "Baked Sweet Potato (cooked) — 130g",
-        "Brussels Sprouts — 125g",
-        "Olive Oil — 5g",
-      ],
-    },
-  },
-  Thu: {
-    breakfast: {
-      name: "Classic Power Smoothie 🫐",
-      items: [
-        "Protein Powder — 30g",
-        "Frozen Mixed Berries — 140g",
-        "Banana — 60g",
-        "Peanut Butter — 16g",
-        "Unsweetened Almond Milk — 240g",
-      ],
-    },
-    lunch: {
-      name: "Chicken Rice Bowl 🍚",
-      items: [
-        "Chicken Breast (cooked) — 113g",
-        "White/Jasmine Rice (cooked) — 160g",
-        "Broccoli (steamed) — 150g",
-        "Olive Oil — 5g",
-      ],
-    },
-    snack: {
-      name: "Yogurt Apple Crunch 🍎",
-      items: [
-        "Plain Non-Fat Greek Yogurt — 170g",
-        "Raw Almonds — 14g",
-        "Apple — 180g",
-      ],
-    },
-    dinner: {
-      name: "Beef & Sweet Potato 🥩",
-      items: [
-        "Lean Ground Beef 93/7 (cooked) — 113g",
-        "Baked Sweet Potato (cooked) — 130g",
-        "Green Beans — 125g",
-        "Butter — 5g",
-      ],
-    },
-  },
-  Fri: {
-    breakfast: {
-      name: "Tropical Smoothie 🥭",
-      items: [
-        "Protein Powder — 30g",
-        "Frozen Mango or Pineapple — 140g",
-        "Banana — 60g",
-        "Almond Butter — 16g",
-        "Unsweetened Almond Milk — 240g",
-      ],
-    },
-    lunch: {
-      name: "Turkey Pasta Bowl 🍝",
-      items: [
-        "Lean Ground Turkey 99% (cooked) — 113g",
-        "Pasta (cooked) — 120g",
-        "Marinara Sauce — 120g",
-        "Zucchini — 100g",
-      ],
-    },
-    snack: {
-      name: "Cottage Cheese & Berries 🍓",
-      items: [
-        "Low-Fat Cottage Cheese 2% — 170g",
-        "Walnuts — 14g",
-        "Strawberries — 150g",
-      ],
-    },
-    dinner: {
-      name: "Pork Tenderloin & Potatoes 🥔",
-      items: [
-        "Pork Tenderloin (cooked) — 113g",
-        "Roasted Red Potatoes (cooked) — 150g",
-        "Asparagus — 125g",
-        "Olive Oil — 7g",
-      ],
-    },
-  },
-  Sat: {
-    breakfast: {
-      name: "Classic Power Smoothie 🫐",
-      items: [
-        "Protein Powder — 30g",
-        "Frozen Mixed Berries — 140g",
-        "Banana — 60g",
-        "Peanut Butter — 16g",
-        "Unsweetened Almond Milk — 240g",
-      ],
-    },
-    lunch: {
-      name: "Chicken Fajita Bowl 🌶️",
-      items: [
-        "Chicken Breast (cooked) — 113g",
-        "Black Beans (rinsed) — 100g",
-        "White Rice (cooked) — 80g",
-        "Bell Peppers & Onions — 100g",
-      ],
-    },
-    snack: {
-      name: "Yogurt Peach Crunch 🍑",
-      items: [
-        "Plain Non-Fat Greek Yogurt — 170g",
-        "Raw Almonds — 14g",
-        "Peach or Pear — 150g",
-      ],
-    },
-    dinner: {
-      name: "Sirloin & Sweet Potato 🥩",
-      items: [
-        "Lean Sirloin Steak (cooked) — 113g",
-        "Baked Sweet Potato (cooked) — 130g",
-        "Brussels Sprouts — 125g",
-        "Olive Oil — 5g",
-      ],
-    },
-  },
-  Sun: {
-    breakfast: {
-      name: "Tropical Smoothie 🥭",
-      items: [
-        "Protein Powder — 30g",
-        "Frozen Mango or Pineapple — 140g",
-        "Banana — 60g",
-        "Almond Butter — 16g",
-        "Unsweetened Almond Milk — 240g",
-      ],
-    },
-    lunch: {
-      name: "Ground Chicken Teriyaki 🍱",
-      items: [
-        "Lean Ground Chicken 97% (cooked) — 113g",
-        "White/Jasmine Rice (cooked) — 160g",
-        "Sugar Snap Peas — 150g",
-        "Teriyaki Sauce — 15g",
-      ],
-    },
-    snack: {
-      name: "Cottage Cheese & Apple 🍎",
-      items: [
-        "Low-Fat Cottage Cheese 2% — 170g",
-        "Walnuts — 14g",
-        "Apple — 180g",
-      ],
-    },
-    dinner: {
-      name: "Beef Burger Bowl 🍔",
-      items: [
-        "Lean Ground Beef 93/7 (cooked) — 113g",
-        "Roasted Potato Wedges (cooked) — 150g",
-        "Mixed Greens — 200g",
-        "Light Vinaigrette — 30g",
-      ],
-    },
-  },
-};
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const WEEKS = [1, 2, 3, 4];
+// Generate an array from 1 to 52
+const WEEKS = Array.from({ length: 52 }, (_, i) => i + 1);
+
+const MONTH_GROUPS = [
+  { name: "JANUARY", weeks: [1, 2, 3, 4] },
+  { name: "FEBRUARY", weeks: [5, 6, 7, 8] },
+  { name: "MARCH", weeks: [9, 10, 11, 12, 13] },
+  { name: "APRIL", weeks: [14, 15, 16, 17] },
+  { name: "MAY", weeks: [18, 19, 20, 21] },
+  { name: "JUNE", weeks: [22, 23, 24, 25, 26] },
+  { name: "JULY", weeks: [27, 28, 29, 30] },
+  { name: "AUGUST", weeks: [31, 32, 33, 34] },
+  { name: "SEPTEMBER", weeks: [35, 36, 37, 38, 39] },
+  { name: "OCTOBER", weeks: [40, 41, 42, 43] },
+  { name: "NOVEMBER", weeks: [44, 45, 46, 47] },
+  { name: "DECEMBER", weeks: [48, 49, 50, 51, 52] },
+];
 const DAY_LABELS = {
   Mon: "Monday",
   Tue: "Tuesday",
@@ -410,7 +159,8 @@ const initState = () => {
         bodyFat: "",
         note: "",
       };
-      const meal = MEALS[d];
+      const weekMeals = MEALS[w] || MEALS[1];
+      const meal = weekMeals?.[d];
       if (meal) {
         ["breakfast", "lunch", "snack", "dinner"].forEach((m) => {
           s[key].meals[m] = meal[m] ? meal[m].items.map(() => false) : [];
@@ -677,7 +427,7 @@ export default function GymDashboard() {
   const key = `${activeDay}-W${activeWeek}`;
   const day = data[key];
   const wk = WORKOUTS[key];
-  const meal = MEALS[activeDay];
+  const meal = MEALS[activeWeek]?.[activeDay] || MEALS[1]?.[activeDay];
   const score = calcDayScore(day);
 
   // Hydration values
@@ -701,7 +451,11 @@ export default function GymDashboard() {
       if (!saved) return;
 
       const parsed = JSON.parse(saved);
-      if (parsed && typeof parsed === "object") setData(parsed);
+      if (parsed && typeof parsed === "object") {
+        // Merge saved data into a full 52-week skeleton so weeks with no
+        // saved data still have valid default objects instead of undefined.
+        setData((prev) => ({ ...prev, ...parsed }));
+      }
     } catch {
       try { localStorage.removeItem(STORAGE_KEY); } catch {}
     }
@@ -881,30 +635,58 @@ export default function GymDashboard() {
             </div>
           </div>
 
-          {/* WEEK TABS */}
-          <div style={{ display: "flex", gap: 6, marginTop: 14 }}>
-            {WEEKS.map((w) => (
-              <button
-                key={w}
-                className="week-btn"
-                onClick={() => setActiveWeek(w)}
-                style={{
-                  flex: 1,
-                  padding: "8px 0",
-                  borderRadius: 10,
-                  background: activeWeek === w ? (isDark ? "#22d3ee" : "#0ea5e9") : "var(--panel)",
-                  border: "1px solid var(--border)",
-                  cursor: "pointer",
-                  color: activeWeek === w ? (isDark ? "#000" : "#fff") : "var(--muted)",
-                  fontFamily: "'Space Mono',monospace",
-                  fontWeight: 800,
-                  fontSize: 13,
-                  transition: "all .2s",
-                }}
-              >
-                W{w}
-              </button>
-            ))}
+          {/* WEEK SELECTOR */}
+          <div style={{ marginTop: 14, position: "relative" }}>
+            <select
+              value={activeWeek}
+              onChange={(e) => setActiveWeek(Number(e.target.value))}
+              style={{
+                width: "100%",
+                padding: "10px 14px",
+                borderRadius: 10,
+                background: "var(--panel)",
+                border: "1px solid var(--border)",
+                color: "var(--text)",
+                fontFamily: "'Space Mono',monospace",
+                fontWeight: 800,
+                fontSize: 14,
+                cursor: "pointer",
+                outline: "none",
+                appearance: "none",
+              }}
+            >
+              {MONTH_GROUPS.map((month) => (
+                <optgroup
+                  key={month.name}
+                  label={month.name}
+                  style={{ background: isDark ? "#1a1a24" : "#f1f5f9", color: isDark ? "#22d3ee" : "#0ea5e9", fontStyle: "normal" }}
+                >
+                  {month.weeks.map((w) => (
+                    <option
+                      key={w}
+                      value={w}
+                      style={{ background: isDark ? "#0a0a0f" : "#fff", color: isDark ? "#fff" : "#000" }}
+                    >
+                      WEEK {w}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+            {/* Custom Dropdown Arrow */}
+            <div
+              style={{
+                position: "absolute",
+                right: 14,
+                top: "50%",
+                transform: "translateY(-50%)",
+                pointerEvents: "none",
+                fontSize: 12,
+                color: "var(--muted)"
+              }}
+            >
+              ▼
+            </div>
           </div>
 
           {/* DAY TABS */}
@@ -1178,57 +960,109 @@ export default function GymDashboard() {
 
         {/* CHECK-IN */}
         <Section icon="📌" title="Weekly Check-In" accent="#f59e0b">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-            {[
-              { label: "Weight (lb)", field: "weight" },
-              { label: "Body Fat %", field: "bodyFat" },
-            ].map(({ label, field }) => (
-              <div key={field}>
-                <div style={{ fontSize: 10, color: "var(--muted2)", marginBottom: 4, letterSpacing: "0.1em" }}>{label}</div>
-                <input
-                  type="number"
-                  value={day[field]}
-                  onChange={(e) => update((d) => ({ [field]: e.target.value }))}
-                  placeholder="—"
-                  style={{
-                    width: "100%",
-                    background: "var(--panel2)",
-                    border: "1px solid var(--border2)",
-                    borderRadius: 10,
-                    padding: "10px 12px",
-                    color: "var(--text)",
-                    fontSize: 16,
-                    fontWeight: 900,
-                    fontFamily: "'Space Mono',monospace",
-                    outline: "none",
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+          {(() => {
+            const isCheckInDay = activeDay === "Mon";
+            const prevWeekKey = `Mon-W${activeWeek - 1}`;
+            const prevWeekData = activeWeek > 1 ? data[prevWeekKey] : null;
 
-          <div style={{ marginTop: 8 }}>
-            <div style={{ fontSize: 10, color: "var(--muted2)", marginBottom: 4, letterSpacing: "0.1em" }}>NOTES</div>
-            <textarea
-              value={day.note}
-              onChange={(e) => update((d) => ({ note: e.target.value }))}
-              placeholder="How did today go? Energy, mood, PRs..."
-              rows={3}
-              style={{
-                width: "100%",
-                background: "var(--panel2)",
-                border: "1px solid var(--border2)",
-                borderRadius: 10,
-                padding: "10px 12px",
-                color: "var(--text)",
-                fontSize: 13,
-                fontFamily: "'Space Mono',monospace",
-                outline: "none",
-                resize: "none",
-                lineHeight: 1.6,
-              }}
-            />
-          </div>
+            const renderDiff = (current, previous, unit) => {
+              if (!current || !previous) return null;
+              const diff = parseFloat(current) - parseFloat(previous);
+              if (isNaN(diff) || diff === 0) return <span style={{ color: "var(--muted)", marginLeft: 6, fontSize: 10 }}>—</span>;
+              const isDown = diff < 0;
+              const color = isDown ? "#22c55e" : "#ef4444";
+              return (
+                <span style={{ color, fontSize: 11, marginLeft: 6, fontWeight: 900 }}>
+                  {isDown ? "▼" : "▲"} {Math.abs(diff).toFixed(1)}{unit}
+                </span>
+              );
+            };
+
+            return (
+              <>
+                {!isCheckInDay && (
+                  <div style={{
+                    padding: "8px 12px",
+                    background: "rgba(245, 158, 11, 0.1)",
+                    border: "1px solid rgba(245, 158, 11, 0.2)",
+                    borderRadius: 8,
+                    marginBottom: 12,
+                    fontSize: 11,
+                    color: "#f59e0b",
+                    fontWeight: 700,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 6
+                  }}>
+                    <span>🔒</span> Check-in locked until next Monday.
+                  </div>
+                )}
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                  {[
+                    { label: "Weight (lb)", field: "weight", unit: "lb" },
+                    { label: "Body Fat %", field: "bodyFat", unit: "%" },
+                  ].map(({ label, field, unit }) => (
+                    <div key={field}>
+                      <div style={{ fontSize: 10, color: "var(--muted2)", marginBottom: 4, letterSpacing: "0.1em", display: "flex", alignItems: "center" }}>
+                        {label}
+                        {isCheckInDay && prevWeekData && renderDiff(day[field], prevWeekData[field], unit)}
+                      </div>
+                      <input
+                        type="number"
+                        value={day[field]}
+                        onChange={(e) => update((d) => ({ [field]: e.target.value }))}
+                        placeholder="—"
+                        disabled={!isCheckInDay}
+                        style={{
+                          width: "100%",
+                          background: isCheckInDay ? "var(--panel2)" : "var(--panel)",
+                          border: "1px solid var(--border2)",
+                          borderRadius: 10,
+                          padding: "10px 12px",
+                          color: isCheckInDay ? "var(--text)" : "var(--muted)",
+                          fontSize: 16,
+                          fontWeight: 900,
+                          fontFamily: "'Space Mono',monospace",
+                          outline: "none",
+                          opacity: isCheckInDay ? 1 : 0.5,
+                          cursor: isCheckInDay ? "text" : "not-allowed",
+                          transition: "all .2s"
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: 8 }}>
+                  <div style={{ fontSize: 10, color: "var(--muted2)", marginBottom: 4, letterSpacing: "0.1em" }}>NOTES</div>
+                  <textarea
+                    value={day.note}
+                    onChange={(e) => update((d) => ({ note: e.target.value }))}
+                    placeholder={isCheckInDay ? "How did the week go? Energy, mood, PRs..." : "Notes locked."}
+                    disabled={!isCheckInDay}
+                    rows={3}
+                    style={{
+                      width: "100%",
+                      background: isCheckInDay ? "var(--panel2)" : "var(--panel)",
+                      border: "1px solid var(--border2)",
+                      borderRadius: 10,
+                      padding: "10px 12px",
+                      color: isCheckInDay ? "var(--text)" : "var(--muted)",
+                      fontSize: 13,
+                      fontFamily: "'Space Mono',monospace",
+                      outline: "none",
+                      resize: "none",
+                      lineHeight: 1.6,
+                      opacity: isCheckInDay ? 1 : 0.5,
+                      cursor: isCheckInDay ? "text" : "not-allowed",
+                      transition: "all .2s"
+                    }}
+                  />
+                </div>
+              </>
+            );
+          })()}
         </Section>
 
         {/* WEEK OVERVIEW */}
