@@ -103,8 +103,8 @@ const WORKOUTS = {
   },
 };
 
-// Weeks 2-4 repeat same workouts
-["W2", "W3", "W4"].forEach((w) => {
+// Weeks 2-52 repeat same workouts
+Array.from({ length: 51 }, (_, i) => `W${i + 2}`).forEach((w) => {
   Object.keys(WORKOUTS)
     .filter((k) => k.endsWith("W1"))
     .forEach((k) => {
